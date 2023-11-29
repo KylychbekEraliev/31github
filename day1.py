@@ -40,3 +40,12 @@ result1=bmi_function(name,height_cm,weight_kg)
 print(result1)
 result1=bmi_function(name1,height_cm1,weight_kg1)
 print(result1)
+
+
+g=["banana","abricos","apelsin"]
+
+temp=g[0]
+g[0]=g[2]
+g[2]=temp
+print(g
+      )
