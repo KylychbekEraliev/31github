@@ -18,3 +18,5 @@ for i in range(2,12):
         total3 +=i
 print (list(range(i)))
 print(total3)
+
+print ("hello growthhungry day2 I really appreciate your effort")
