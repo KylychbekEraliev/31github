@@ -26,3 +26,13 @@ for element in given_list3:
         break
     total5 += element
 print(total5)
+
+given_list4=[5,4,4,3,1,-1,-2,-3,-5]
+total4 =0
+i=0
+while True:
+    total4 += given_list4[i]
+    i += 1
+    if given_list4[i] <=0:
+        break
+print(total4)
