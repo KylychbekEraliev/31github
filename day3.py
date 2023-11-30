@@ -17,3 +17,12 @@ while given_list[i]>0:
     total3 += given_list[i]
     i +=1
 print(total3)
+
+
+given_list3=[5,4,4,3,1,-1,-2,-3,-5]
+total5=0
+for element in given_list3:
+    if element <=0:
+        break
+    total5 += element
+print(total5)
