@@ -1,1 +1,1 @@
-print("growth hungry day day 9 uasfrs")
+print("growth hungry day day 9")
