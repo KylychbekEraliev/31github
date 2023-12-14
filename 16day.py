@@ -1,1 +1,1 @@
-print("Hello world from growth ads Hungry 16 day ")
+print("Hello world from GrowthHungry 16 day ")
