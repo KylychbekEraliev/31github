@@ -1,1 +1,1 @@
-print("Hello world from growthhungry day 18")
+print("Hello world from GrowthHungry day 18")
