@@ -1,1 +1,1 @@
-print("Hello from anttech to aasdfdsf growthhungry")
+print("Hello from anttech to growthhungry")
