@@ -1,1 +1,1 @@
-print("Hello world growthhungry adfga 31 day")
+print("Hello world growthhungry 31 day")
