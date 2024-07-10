@@ -2,31 +2,13 @@ pipeline {
     agent { label 'test' }
 
     stages {
-        stage('Connect to MongoDB and Update Documents') {
+        stage('Connect to MongoDB and Load Command') {
             steps {
                 script {
-                    // Define MongoDB URI
-                    def mongoUri = "mongodb+srv://nur23anttech:admin@cluster0.b9lybep.mongodb.net/"
-
-                    // Update command to execute
-                    def updateCommand = """
-                    db.studentInfo.updateMany(
-                        {},
-                        {
-                            \$set: {
-                                'attendance.December': '95%',
-                                'attendance.March': '96%',
-                                'attendance.April': '98%'
-                            }
-                        }
-                    )
-                    """
-
-                    // Connect to MongoDB and execute the update command
-                    echo "Executing update command..."
-                    sh """
-                    mongosh "${mongoUri}" --eval '${updateCommand}'
-                    """
+                    // Connect to MongoDB and load the command
+                    sh '''
+                    mongosh "mongodb+srv://nur23anttech:admin@cluster0.b9lybep.mongodb.net/" --eval "load('/home/ec2-user/update.js')"
+                    '''
                 }
             }
         }
@@ -34,16 +16,15 @@ pipeline {
 
     post {
         always {
-            echo 'Finished MongoDB update stage.'
+            echo 'Finished MongoDB connection stage.'
         }
 
         success {
-            echo 'Successfully connected to MongoDB and updated documents!'
+            echo 'Successfully connected to MongoDB and executed the command!'
         }
 
         failure {
-            echo 'Failed to connect to MongoDB or update documents.'
+            echo 'Failed to connect to MongoDB or execute the command.'
         }
     }
 }
-
