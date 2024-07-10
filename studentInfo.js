@@ -1,8 +1,8 @@
 db.studentInfo.insert({
-  name: { firstName: "John", lastName: "Doe" },
+  name: { firstName: "Aktan", lastName: "Doe" },
   class: 6,
   rollNo: 23,
-  subjects: ["Maths", "Physics", "English", "Chemistry"],
+  subjects: ["Maths", "Aktan", "English", "Chemistry"],
   attendance: {
     January: "90%",
     February: "85%",
