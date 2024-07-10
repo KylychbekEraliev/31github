@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        MONGODB_URI = credentials('mongodb-uri-secret')
+        MONGODB_URI = credentials('mongo')
         STUDENT_INFO_SCRIPT = '/home/ec2-user/studentInfo.js' // Adjust the path as per your setup
         UPDATE_SCRIPT = '/home/ec2-user/update.js' // Adjust the path as per your setup
     }
