@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'test' }
 
     stages {
         stage('Connect to MongoDB and Load Command') {
