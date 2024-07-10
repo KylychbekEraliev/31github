@@ -1,8 +1,10 @@
 pipeline {
-    agent { label 'test' }
+    agent any
 
     environment {
-        MONGODB_URI = credentials('mongo')
+        MONGODB_URI = credentials('mongodb-uri-secret')
+        STUDENT_INFO_SCRIPT = '/home/ec2-user/studentInfo.js' // Adjust the path as per your setup
+        UPDATE_SCRIPT = '/home/ec2-user/update.js' // Adjust the path as per your setup
     }
 
     stages {
@@ -10,8 +12,9 @@ pipeline {
             steps {
                 script {
                     // Use environment variable MONGODB_URI
+                    echo "Connecting to MongoDB using URI: ${MONGODB_URI}"
                     sh """
-                    mongosh "${MONGODB_URI}" --eval "load('${studentInfoScript}'); load('${updateScript}')"
+                    mongosh "${MONGODB_URI}" --eval "load('${STUDENT_INFO_SCRIPT}'); load('${UPDATE_SCRIPT}')"
                     """
                 }
             }
@@ -32,4 +35,5 @@ pipeline {
         }
     }
 }
+
 
