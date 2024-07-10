@@ -10,7 +10,6 @@ pipeline {
             steps {
                 script {
                     // Use environment variable MONGODB_URI
-                    echo "Connecting to MongoDB using URI: ${MONGODB_URI}"
                     sh """
                     mongosh "${MONGODB_URI}" --eval "load('${studentInfoScript}'); load('${updateScript}')"
                     """
