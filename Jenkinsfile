@@ -1,5 +1,5 @@
 pipeline {
-    agent agent { label 'test' }
+    agent { label 'test' }
 
     stages {
         stage('Connect to MongoDB and Update Documents') {
