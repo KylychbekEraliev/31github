@@ -1,14 +1,19 @@
 pipeline {
     agent { label 'test' }
 
+    environment {
+        MONGODB_URI = credentials('mongo')
+    }
+
     stages {
-        stage('Connect to MongoDB and Load Command') {
+        stage('Connect to MongoDB and Load Scripts') {
             steps {
                 script {
-                    // Connect to MongoDB and load the command
-                    sh '''
-                    mongosh "mongodb+srv://nur23anttech:admin@cluster0.b9lybep.mongodb.net/" --eval "load('studentInfo.js'); load('js.js')"
-                    '''
+                    // Use environment variable MONGODB_URI
+                    echo "Connecting to MongoDB using URI: ${MONGODB_URI}"
+                    sh """
+                    mongosh "${MONGODB_URI}" --eval "load('${studentInfoScript}'); load('${updateScript}')"
+                    """
                 }
             }
         }
@@ -16,15 +21,16 @@ pipeline {
 
     post {
         always {
-            echo 'Finished MongoDB connection stage.'
+            echo 'Finished MongoDB script execution.'
         }
 
         success {
-            echo 'Successfully connected to MongoDB and executed the command!'
+            echo 'Successfully executed MongoDB scripts!'
         }
 
         failure {
-            echo 'Failed to connect to MongoDB or execute the command.'
+            echo 'Failed to execute MongoDB scripts.'
         }
     }
 }
+
