@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Define the list of scripts to run
-                    def scripts = ["test1.js", "test2.js"]
+                    def scripts = ["update.js", "test2.js"]
 
                     // Ensure the marker directory exists
                     sh "mkdir -p ${MARKER_DIR}"
