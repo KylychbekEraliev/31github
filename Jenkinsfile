@@ -7,7 +7,7 @@ pipeline {
                 script {
                     // Connect to MongoDB and load the command
                     sh '''
-                    mongosh "mongodb+srv://nur23anttech:admin@cluster0.b9lybep.mongodb.net/" --eval "load('/home/ec2-user/update.js')"
+                    mongosh "mongodb+srv://nur23anttech:admin@cluster0.b9lybep.mongodb.net/" --eval "load('/home/ec2-user/workspace/afsdf/update.js')"
                     '''
                 }
             }
