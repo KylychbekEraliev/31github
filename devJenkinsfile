@@ -15,7 +15,7 @@ pipeline {
                 stage('ui-config Management') {
                     when {
                         allOf {
-                           expression { env.CHANGE_TARGET == 'staging'  }
+                           expression { env.CHANGE_TARGET == 'development'  }
                         }
                     }
                     steps {
