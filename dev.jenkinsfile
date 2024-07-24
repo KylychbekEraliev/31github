@@ -1,6 +1,6 @@
 /* groovylint-disable NestedBlockDepth */
 pipeline {
-    agent { label 'stagingnode' }
+    agent { label 'ec2-user' }
     environment {
         DEPLOYMENT_ID = "${env.CHANGE_ID}-${env.BUILD_NUMBER}"
     }
