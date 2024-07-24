@@ -15,15 +15,15 @@ pipeline {
                 stage('ui-config Management') {
                     when {
                         allOf {
-                           expression { env.CHANGE_TARGET == 'development'  }
+                           expression { env.CHANGE_TARGET == 'staging'  }
                         }
                     }
                     steps {
                         sh 'pwd'
                         echo "latest tag is staging-${DEPLOYMENT_ID}"
-                        dir('packages/core/services/ui-configuration-management')  {
+                        dir('*')  {
                             sh 'pwd'
-                            sh 'mkdir kylych'
+                            sh 'mkdir akzhol'
 
                         }
                     }
